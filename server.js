@@ -8,7 +8,7 @@ const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const mongooseSetup = require("./config/database");
 
-const index = require("./routes/index");
+const index = require("./routes/index").default;
 const users = require("./routes/users");
 
 mongooseSetup.start(); //starts the database
@@ -57,7 +57,6 @@ app.use((req, res, next) => {
   });
 
 //Routes
-// app.use("/", index);
 // app.use("/users", users);
 
 if (process.env.NODE_ENV === "production") {
@@ -67,6 +66,9 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
   }
+
+  app.use("/", index);
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);

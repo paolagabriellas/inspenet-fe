@@ -1,5 +1,5 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 
 //Welcome Page
 router.get("/", (req, res) => {
@@ -16,4 +16,4 @@ router.get("/dashboard", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
