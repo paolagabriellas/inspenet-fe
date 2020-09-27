@@ -7,7 +7,7 @@ module.exports = {
     .connect(
         process.env.MONGODB_URI || uri,
         {
-          useMongoClient: true, useNewUrlParser: true, useUnifiedTopology: true
+          useNewUrlParser: true, useUnifiedTopology: true
         }
       )
       .then(console.log("MongoDB connected successfully"))
