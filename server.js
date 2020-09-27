@@ -7,6 +7,10 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const mongooseSetup = require("./config/database");
+
+const index = require("./routes/index");
+const users = require("./routes/users");
+
 //Passport Config
 require("./config/passport")(passport);
 
@@ -49,6 +53,10 @@ app.use((req, res, next) => {
     }
     next();
   });
+
+//Routes
+app.use("/", index);
+app.use("/users", users);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
