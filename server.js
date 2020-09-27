@@ -6,14 +6,15 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
+const mongooseSetup = require("./config/database");
 
 
-mongoose.connect(
-  process.env.MONGODB_URI || config.MongoURI,
-  {
-    useMongoClient: true, useNewUrlParser: true, useUnifiedTopology: true
-  }
-);
+// mongoose.connect(
+//   process.env.MONGODB_URI || config.MongoURI,
+//   {
+//     useMongoClient: true, useNewUrlParser: true, useUnifiedTopology: true
+//   }
+// );
 
 //Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
