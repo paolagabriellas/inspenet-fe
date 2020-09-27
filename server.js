@@ -11,6 +11,8 @@ const mongooseSetup = require("./config/database");
 const index = require("./routes/index");
 const users = require("./routes/users");
 
+mongooseSetup.start(); //starts the database
+
 //Passport Config
 require("./config/passport")(passport);
 

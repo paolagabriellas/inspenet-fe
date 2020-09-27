@@ -5,7 +5,7 @@ module.exports = {
   start: function() {
     mongoose
     .connect(
-        process.env.MONGODB_URI || config.MongoURI,
+        process.env.MONGODB_URI || uri,
         {
           useMongoClient: true, useNewUrlParser: true, useUnifiedTopology: true
         }
