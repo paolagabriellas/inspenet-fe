@@ -3,7 +3,7 @@ const router = Router();
 
 //Welcome Page
 router.get("/", (req, res) => {
-  //res.render("welcome");
+  res.render("welcome");
 });
 //Dashboard
 router.get("/dashboard", (req, res) => {
